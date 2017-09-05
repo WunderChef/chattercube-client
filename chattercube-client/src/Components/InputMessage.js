@@ -6,7 +6,7 @@ class InputMessage extends Component {
     return (
       <div className="message-control">
         <input className="message-input" type="text" />
-        <button calssName="message-submit">Submit</button>
+        <button className="message-submit">Submit</button>
       </div>
     );
   }

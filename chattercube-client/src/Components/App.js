@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MessageList from './MessageList';
 import InputMessage from './InputMessage';
+import axios from 'axios';
 
 class App extends Component {
 
@@ -10,6 +11,26 @@ class App extends Component {
       messages: ['hi', 'hi'],
       user: 'phil',
     };
+    this.getMessages.bind(this);
+    this.sendMessage.bind(this);
+  }
+
+  componentDidMount() {
+    this.getMessages();
+  }
+
+  getMessages() {
+    axios.get('http://chattercube.thirdtape.com/messages/')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  sendMessage(message) {
+    
   }
 
   render() {
