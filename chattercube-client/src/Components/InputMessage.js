@@ -4,7 +4,9 @@ class InputMessage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="message-control">
+        <input className="message-input" type="text" />
+        <button calssName="message-submit">Submit</button>
       </div>
     );
   }

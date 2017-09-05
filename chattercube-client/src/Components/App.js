@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import MessageList from './MessageList';
+import InputMessage from './InputMessage';
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      messages: [],
+      messages: ['hi', 'hi'],
       user: 'phil',
     };
   }
@@ -23,10 +25,14 @@ class App extends Component {
             <div className="app-header">Title</div>
           </div>
           <div>
-            <div className="message-input"> Type here </div>
+            <div className="message-input">
+              <InputMessage />
+            </div>
           </div>
           <div>
-            <div className="message-list">Message list</div>
+            <div className="message-list">
+              <MessageList messages={this.state.messages}/>
+            </div>
           </div>
         </div>
       </div>
