@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      messages: ['hi', 'hi'],
+      messages: [],
       user: 'phil',
     };
     this.getMessages.bind(this);
@@ -21,11 +21,13 @@ class App extends Component {
 
   getMessages() {
     axios.get('http://chattercube.thirdtape.com/messages/')
-      .then(function (response) {
-        console.log(response);
+      .then(({ data }) => {
+        this.setState({
+          messages: data.messages,
+        });
       })
       .catch(function (error) {
-        console.log(error);
+        console.error('FAILURE!! ', error);
       });
   }
 
