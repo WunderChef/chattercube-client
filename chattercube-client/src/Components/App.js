@@ -9,10 +9,10 @@ class App extends Component {
     super();
     this.state = {
       messages: [],
-      user: 'phil',
+      username: 'phil',
     };
-    this.getMessages.bind(this);
-    this.sendMessage.bind(this);
+    this.getMessages = this.getMessages.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   componentDidMount() {
@@ -22,18 +22,27 @@ class App extends Component {
   getMessages() {
     axios.get('http://chattercube.thirdtape.com/messages/')
       .then(({ data }) => {
-        console.log(data.messages)
         this.setState({
           messages: data.messages,
         });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.error('FAILURE!! ', error);
       });
   }
 
-  sendMessage(message) {
-    
+  sendMessage() {
+    axios.post('http://chattercube.thirdtape.com/messages/', {
+      message: document.getElementById('message-input').value,
+      username: this.state.username,
+    })
+      .then((response) => {
+        this.getMessages();
+      })
+      .catch((error) => {
+        console.error('FAILURE!! ', error);
+      });
+    document.getElementById('message-input').value = '';
   }
 
   render() {
@@ -50,12 +59,12 @@ class App extends Component {
           </div>
           <div>
             <div className="message-input">
-              <InputMessage />
+              <InputMessage submit={this.sendMessage} />
             </div>
           </div>
           <div>
             <div className="message-list">
-              <MessageList messages={this.state.messages}/>
+              <MessageList messages={this.state.messages} />
             </div>
           </div>
         </div>
