@@ -22,6 +22,7 @@ class App extends Component {
   getMessages() {
     axios.get('http://chattercube.thirdtape.com/messages/')
       .then(({ data }) => {
+        console.log(data.messages)
         this.setState({
           messages: data.messages,
         });
