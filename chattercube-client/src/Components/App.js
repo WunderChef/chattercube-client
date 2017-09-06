@@ -72,7 +72,7 @@ class App extends Component {
             <UserBar updateUser={this.updateUser} username={this.state.username} />
           </nav>
           <div>
-            <div className="app-header">Title</div>
+            <div className="app-header">chatterbox</div>
           </div>
           <div>
             <div className="message-input">

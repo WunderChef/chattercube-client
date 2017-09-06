@@ -6,7 +6,7 @@ class UserBar extends Component {
     if (this.props.username) {
       return (
         <div className="sign-in" >
-          <span>{`Welcome, ${this.props.username}!`}</span>
+          <span className="welcome-message">{`Welcome, ${this.props.username}!`}</span>
           <button className="message-submit" onClick={this.props.updateUser} >Sign out</button>
         </div>
       );
