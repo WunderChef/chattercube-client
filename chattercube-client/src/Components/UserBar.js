@@ -5,14 +5,22 @@ class UserBar extends Component {
   render() {
     if (this.props.username) {
       return (
-        <div className="sign-in" >
-          <span className="welcome-message">{`Welcome, ${this.props.username}!`}</span>
-          <button className="message-submit" onClick={this.props.updateUser} >Sign out</button>
-        </div>
+        <nav className="navbar navbar-inverse navbar-static-top">
+          <div className="container-fluid">
+            <div className="navbar-right sign-out">
+              <div className="navbar-header">
+                <span className="welcome-message navbar-brand">{`Welcome, ${this.props.username}!`}</span>
+              </div>
+              <button onClick={this.props.updateUser} className="btn btn-default navbar-btn" type="submit">
+                <i className="glyphicon glyphicon-log-out"></i>
+              </button>
+            </div>
+          </div>
+        </nav>
       );
     } else {
       return (
-        <nav className="navbar navbar-inverse">
+        <nav className="navbar navbar-inverse navbar-static-top">
           <div className="container-fluid">
             <form className="navbar-form navbar-right">
               <div className="input-group">
