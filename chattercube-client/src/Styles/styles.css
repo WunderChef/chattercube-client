@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 .app {
   text-align: center;
 }
@@ -18,4 +22,8 @@ body {
 
 #message-input {
   min-width: 400px;
+}
+
+.container .jumbotron {
+  border-radius: 0px;
 }

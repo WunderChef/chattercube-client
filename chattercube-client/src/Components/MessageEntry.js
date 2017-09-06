@@ -17,7 +17,7 @@ class MessageEntry extends Component {
                 {message}
               </div>
                 <br/>
-              <small class="text-muted">{`${username} | ${date}`}</small>
+              <small class="text-muted">{`${username}  |  ${date}`}</small>
                 <hr/>
             </div>
           </div>

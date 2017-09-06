@@ -69,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div>
+        <div className="container">
           <UserBar updateUser={this.updateUser} username={this.state.username} />
           <div className="jumbotron text-center">
             <h1>chattercube</h1>
