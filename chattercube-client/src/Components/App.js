@@ -47,7 +47,8 @@ class App extends Component {
       });
   }
 
-  sendMessage() {
+  sendMessage(event) {
+    event.preventDefault();
     if (this.state.username) {
       axios.post('http://chattercube.thirdtape.com/messages/', {
         message: document.getElementById('message-input').value,
@@ -76,11 +77,11 @@ class App extends Component {
           </div>
           <div>
             <div className="message-input">
-              <InputMessage submit={this.sendMessage} />
+              <InputMessage sendMessage={this.sendMessage} />
             </div>
           </div>
           <div>
-            <div className="message-list col-sm-4">
+            <div className="message-list">
               <MessageList messages={this.state.messages} />
             </div>
           </div>

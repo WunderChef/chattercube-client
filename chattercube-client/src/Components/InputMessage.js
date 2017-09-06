@@ -4,9 +4,11 @@ class InputMessage extends Component {
 
   render() {
     return (
-      <div className="message-control">
-        <input id="message-input" type="text" />
-        <button className="message-submit" onClick={this.props.submit} >Submit</button>
+      <div>
+        <div className="message-control form-group">
+          <textarea id="message-input" rows="2" type="text" />
+        </div>
+          <button className="message-submit btn btn-default" onClick={this.props.sendMessage} type="submit" >Send</button>
       </div>
     );
   }
