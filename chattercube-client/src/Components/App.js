@@ -47,17 +47,21 @@ class App extends Component {
   }
 
   sendMessage() {
-    axios.post('http://chattercube.thirdtape.com/messages/', {
-      message: document.getElementById('message-input').value,
-      username: this.state.username,
-    })
-      .then((response) => {
-        this.getMessages();
+    if (this.state.username) {
+      axios.post('http://chattercube.thirdtape.com/messages/', {
+        message: document.getElementById('message-input').value,
+        username: this.state.username,
       })
-      .catch((error) => {
-        console.error('FAILURE!! ', error);
-      });
-    document.getElementById('message-input').value = '';
+        .then((response) => {
+          this.getMessages();
+        })
+        .catch((error) => {
+          console.error('FAILURE!! ', error);
+        });
+      document.getElementById('message-input').value = '';
+    } else {
+      window.alert('Sign in first to send a message!');
+    }
   }
 
   render() {
