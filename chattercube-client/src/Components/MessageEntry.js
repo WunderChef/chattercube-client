@@ -9,13 +9,20 @@ class MessageEntry extends Component {
     const date = _.escape(this.props.message.createdAt);
 
     return (
-      <div>
-        <span>{username}</span>
-        <span>
-          <span>{date}</span>
-          <span>{message}</span>
-        </span>
-      </div>
+      <li class="media">
+        <div class="media-body">
+          <div class="media">
+            <div class="media-body">
+              <div className="message-text">
+                {message}
+              </div>
+                <br/>
+              <small class="text-muted">{`${username} | ${date}`}</small>
+                <hr/>
+            </div>
+          </div>
+        </div>
+      </li>
     );
   }
 }

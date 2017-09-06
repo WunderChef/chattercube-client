@@ -4,7 +4,7 @@ class InputMessage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="input-container" >
         <div className="message-control form-group">
           <textarea id="message-input" rows="2" type="text" />
         </div>

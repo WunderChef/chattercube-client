@@ -6,9 +6,11 @@ class MessageList extends Component {
   render() {
     return (
       <div>
-        {this.props.messages.map((message, i) => 
-          <MessageEntry key={i} message={message}/>
-        )}
+        <ul className="media-list">
+          {this.props.messages.map((message, i) => 
+            <MessageEntry key={i} message={message}/>
+          )}
+        </ul>
       </div>
     );
   }

@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.app {
+  text-align: center;
+}
+
+.sign-out {
+  padding-right: 14px;
+}
+
+.input-container {
+  padding-bottom: 30px;
+}
+
+#message-input {
+  min-width: 400px;
+}
