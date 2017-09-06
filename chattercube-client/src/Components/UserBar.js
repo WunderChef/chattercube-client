@@ -12,10 +12,20 @@ class UserBar extends Component {
       );
     } else {
       return (
-        <div className="sign-in" >
-          <input id="user-input" type="text" />
-          <button className="message-submit" onClick={this.props.updateUser} >Sign in</button>
-        </div>
+        <nav className="navbar navbar-inverse">
+          <div className="container-fluid">
+            <form className="navbar-form navbar-right">
+              <div className="input-group">
+                <input id="user-input" className="form-control" type="text" placeholder="Sign in" />
+                <div className="input-group-btn">
+                  <button onClick={this.props.updateUser} className="btn btn-default" type="submit">
+                    <i className="glyphicon glyphicon-log-in"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </nav>
       );
     }
   }

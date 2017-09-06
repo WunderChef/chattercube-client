@@ -22,7 +22,8 @@ class App extends Component {
     setInterval(this.getMessages, 1000);
   }
 
-  updateUser() {
+  updateUser(event) {
+    event.preventDefault();
     if (this.state.username) {
       this.setState({
         username: '',
@@ -68,11 +69,10 @@ class App extends Component {
     return (
       <div className="app">
         <div>
-          <nav className="navbar">
-            <UserBar updateUser={this.updateUser} username={this.state.username} />
-          </nav>
-          <div>
-            <div className="app-header">chatterbox</div>
+          <UserBar updateUser={this.updateUser} username={this.state.username} />
+          <div className="jumbotron text-center">
+            <h1>chattercube</h1>
+            <p>Talk with your friends!</p> 
           </div>
           <div>
             <div className="message-input">
@@ -80,7 +80,7 @@ class App extends Component {
             </div>
           </div>
           <div>
-            <div className="message-list">
+            <div className="message-list col-sm-4">
               <MessageList messages={this.state.messages} />
             </div>
           </div>
