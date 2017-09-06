@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MessageList from './MessageList';
 import InputMessage from './InputMessage';
+import UserBar from './UserBar';
 import axios from 'axios';
 
 class App extends Component {
@@ -9,14 +10,28 @@ class App extends Component {
     super();
     this.state = {
       messages: [],
-      username: 'phil',
+      username: '',
     };
     this.getMessages = this.getMessages.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
   componentDidMount() {
     this.getMessages();
+    setInterval(this.getMessages, 1000);
+  }
+
+  updateUser() {
+    if (this.state.username) {
+      this.setState({
+        username: '',
+      });
+    } else {
+      this.setState({
+        username: document.getElementById('user-input').value,
+      });
+    }
   }
 
   getMessages() {
@@ -50,9 +65,7 @@ class App extends Component {
       <div className="app">
         <div>
           <nav className="navbar">
-            <div>
-              Search
-            </div>
+            <UserBar updateUser={this.updateUser} username={this.state.username} />
           </nav>
           <div>
             <div className="app-header">Title</div>
